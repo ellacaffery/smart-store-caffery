@@ -1,2 +1,2 @@
-# my-python-project
+# smart-store-caffery
 First project
