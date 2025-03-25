@@ -1,0 +1,9 @@
+ProductID,ProductName,Category,UnitPrice,YearAdded,StoreSection
+101,laptop,Electronics,793.12,2008,E
+102,hoodie,Clothing,39.1,2000,C
+103,cable,Electronics,22.76,1999,F
+104,hat,Clothing,43.1,2001,C
+105,football,Sports,19.78,2009,B
+106,controller,Electronics,88.98,2010,E
+107,jacket,Clothing,67.02,2000,C
+108,protector,Electronics,12.56,2012,F
