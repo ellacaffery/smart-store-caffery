@@ -1,4 +1,4 @@
-ProductID,ProductName,Category,UnitPrice,YearAdded,StoreSection
+productid,productname,category,unitprice,yearadded,storesection
 101,laptop,Electronics,793.12,2008,E
 102,hoodie,Clothing,39.1,2000,C
 103,cable,Electronics,22.76,1999,F

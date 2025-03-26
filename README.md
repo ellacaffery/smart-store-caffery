@@ -11,6 +11,7 @@ A project designed for inventory management. The goal is to use Git for version 
   - [Running Python Scripts](#running-python-scripts)
   - [Updating and Pushing Changes](#updating-and-pushing-changes)
   - [Final Notes](#final-notes)
+  - [P3 - Data Cleaning \& Prepare for ETL](#p3---data-cleaning--prepare-for-etl)
 
 ## Project Setup
 1. Clone the Repository
@@ -83,3 +84,50 @@ git push origin main
 - Always pull (git pull origin main --rebase) before pushing changes to avoid conflicts.
 - Use descriptive commit messages to track progress.
 - If you get merge conflicts, resolve them manually and commit again.
+
+## P3 - Data Cleaning & Prepare for ETL
+
+Objectives
+- Employ Python pandas to perform some common cleaning and prep tasks. 
+- Wrap this functionality into a reusable DataScrubber class. 
+- Use Python unittest (from the Python Standard Library) to verify our DataScrubber class methods have been correctly defined and perform the necessary work correctly. 
+- Finish the TODO items in the provided DataScrubber class. 
+- Run the test data scrubber script to verify ALL tests pass 100%. 
+- Use the DataScrubber class in your data prep script. 
+
+Data Cleaning Process (using Python pandas)
+1. Initial Data Inspection and Profiling
+df.info(): Check data types and identify missing values.
+df.describe(): Get summary statistics for numerical columns.
+df.head() and df.sample(): Inspect the structure and sample of the data.
+2. Handle Missing Data
+Identify missing values: df.isnull().sum()
+Drop missing values: df.dropna()
+Fill missing values: df.fillna(value)
+3. Remove Duplicates
+Identify duplicates: df.duplicated()
+Drop duplicates: df.drop_duplicates()
+4. Filter or Handle Outliers
+Identify outliers: df.describe() and box plot visualization.
+Filter outliers: df[df['column'] < upper_bound]
+5. Data Type Conversion and Standardization
+Convert data types: df.astype()
+Parse dates: pd.to_datetime(df['column'])
+6. Standardize and Format Data
+Apply string formatting: df['column'].str.lower() and df['column'].str.strip()
+Rename columns: df.rename(columns={'old_name': 'new_name'})
+7. Column Management
+Drop unnecessary columns: df.drop(columns=['column'])
+Reorder columns: df = df[['col1', 'col2', ...]]
+8. Data Integration and Aggregation
+Merge data: pd.merge(df1, df2, on='key_column')
+Aggregate data: df.groupby().agg()
+
+ETL Preperation
+- Verify attribute names are clear with units for numerical traits.
+- Attribute names have been standardized where possible.
+- Verify all rows have the correct number of entries.
+- Verify all duplication has been removed.
+- Verify all bad, missing, or out of range records have been removed.
+- Verify each column adheres to the expected data type (e.g., dates are in date/time formats, identifiers like phone numbers are consistent).
+- Verify that collection and usage comply with relevant laws and regulations.
