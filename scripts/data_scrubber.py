@@ -250,3 +250,5 @@ class DataScrubber:
                 raise ValueError(f"Column name '{column}' not found in the DataFrame.")
         self.df = self.df[columns]
         return self.df
+    
+    FIX DATA SCRUBBER

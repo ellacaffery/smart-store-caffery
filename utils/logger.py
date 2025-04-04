@@ -50,4 +50,3 @@ def main() -> None:
 # Conditional execution block that calls main() only when this file is executed directly
 if __name__ == "__main__":
     main()
-    

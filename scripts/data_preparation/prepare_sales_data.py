@@ -11,6 +11,20 @@ The data preparation steps include removing duplicates, handling missing values,
 trimming whitespace, and more.
 """
 
+import sys
+import pathlib
+
+# Add the project root to sys.path
+PROJECT_ROOT = pathlib.Path(__file__).resolve().parent.parent
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.append(str(PROJECT_ROOT))
+
+# Debugging: Print sys.path to verify
+print("sys.path:", sys.path)
+
+# Now we can import local modules
+from utils.logger import logger  # noqa: E402
+    
 import pathlib
 import sys
 import pandas as pd
@@ -23,6 +37,9 @@ if str(PROJECT_ROOT) not in sys.path:
 # Now we can import local modules
 from utils.logger import logger  # noqa: E402
 from scripts.data_scrubber import DataScrubber  # noqa: E402
+
+# Remove duplicates
+df_cleaned = df.drop_duplicates()
 
 # Constants
 DATA_DIR: pathlib.Path = PROJECT_ROOT.joinpath("data")
