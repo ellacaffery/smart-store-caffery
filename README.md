@@ -12,6 +12,7 @@ A project designed for inventory management. The goal is to use Git for version 
   - [Updating and Pushing Changes](#updating-and-pushing-changes)
   - [Final Notes](#final-notes)
   - [P3 - Data Cleaning \& Prepare for ETL](#p3---data-cleaning--prepare-for-etl)
+  - [P4 - Create and Populate a DW](#p4---create-and-populate-a-dw)
 
 ## Project Setup
 1. Clone the Repository
@@ -131,3 +132,14 @@ ETL Preperation
 - Verify all bad, missing, or out of range records have been removed.
 - Verify each column adheres to the expected data type (e.g., dates are in date/time formats, identifiers like phone numbers are consistent).
 - Verify that collection and usage comply with relevant laws and regulations.
+
+## P4 - Create and Populate a DW
+
+Objectives:
+- Understand the role of a data warehouse in business intelligence.
+- Design a schema that effectively organizes data for analysis.
+- Implement the schema using a database system to create a functional data warehouse.
+- Write and execute an ETL script to populate the warehouse.
+- Verify and document the schema and data.
+
+Succesfully designed a star schema and loaded data sets from "customers_data_prepared", "products_data_prepared", and "sales_data_preprared" into a data warehouse names "smart_sales.db"
