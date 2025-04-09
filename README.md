@@ -13,6 +13,7 @@ A project designed for inventory management. The goal is to use Git for version 
   - [Final Notes](#final-notes)
   - [P3 - Data Cleaning \& Prepare for ETL](#p3---data-cleaning--prepare-for-etl)
   - [P4 - Create and Populate a DW](#p4---create-and-populate-a-dw)
+  - [P5 - Cross-Platform Reporting with Power BI \& Spark](#p5---cross-platform-reporting-with-power-bi--spark)
 
 ## Project Setup
 1. Clone the Repository
@@ -143,3 +144,86 @@ Objectives:
 - Verify and document the schema and data.
 
 Succesfully designed a star schema and loaded data sets from "customers_data_prepared", "products_data_prepared", and "sales_data_preprared" into a data warehouse names "smart_sales.db"
+
+## P5 - Cross-Platform Reporting with Power BI & Spark
+
+Objectives:
+- Connect to an SQLite database for analysis
+- Write and execute SQL queries for reporting
+- Implement slicing, dicing, and drilldowns
+- Create interactive visualizations
+- Explore scalability & cloud-based solutions
+
+SQL Queries and Reports
+1. Top Customers:
+let
+    Source = Odbc.DataSource("dsn=SmartSalesDSN", [HierarchicalNavigation=true]),
+    customer_Table = Source{[Name="customer",Kind="Table"]}[Data],
+    
+    // Sort customers by 'loyalty_points' (or other column) in descending order
+    SortedCustomers = Table.Sort(customer_Table, {{"loyalty_points", Order.Descending}}),
+    
+    // Get top 5 customers
+    TopCustomers = Table.FirstN(SortedCustomers, 5)
+in
+    TopCustomers
+  
+2. Total Sales by Product:
+let
+    // Reference existing queries
+    Products = product,
+    Sales = sale,
+
+    // Merge sales with products to get product names
+    MergedTables = Table.NestedJoin(Sales, {"product_id"}, Products, {"product_id"}, "ProductDetails", JoinKind.Inner),
+
+    // Expand product_name from the joined table
+    Expanded = Table.ExpandTableColumn(MergedTables, "ProductDetails", {"product_name"}),
+
+    // Group by product_name and sum sale_amount
+    Grouped = Table.Group(Expanded, {"product_name"}, {{"total_sales", each List.Sum([sale_amount]), type number}}),
+
+    // Optional: Sort descending by total_sales
+    Sorted = Table.Sort(Grouped, {{"total_sales", Order.Descending}})
+in
+    Sorted
+
+3. Sales by Region:
+let
+    // Reference existing customer and sales queries
+    Customers = customer,
+    Sales = sale,
+
+    // Merge sales with customers to get region
+    Merged = Table.NestedJoin(Sales, {"customer_id"}, Customers, {"customer_id"}, "CustomerDetails", JoinKind.Inner),
+
+    // Expand the 'region' column from customer data
+    Expanded = Table.ExpandTableColumn(Merged, "CustomerDetails", {"region"}),
+
+    // Group by region and calculate total sales
+    Grouped = Table.Group(Expanded, {"region"}, {{"total_sales", each List.Sum([sale_amount]), type number}}),
+
+    // Optional: Sort by total_sales descending
+    Sorted = Table.Sort(Grouped, {{"total_sales", Order.Descending}})
+in
+    Sorted
+
+- Reports
+  These queries are used to 
+  1. Identify the top customers through their loyalty points
+  2. Identify how many sales are generated from each product
+  3. Identify how many sales happen in each region
+
+Design
+I aimed to design my visuals in an easy to read manner that makes sense for the datasets.
+
+Power BI Model View
+![Alt Text](Screenshot1.png)
+
+Query Results
+![Alt Text](TopCustomers.png)
+![Alt Text](SalesbyProduct.png)
+![Alt Text](SalesbyRegion.png)
+
+Charts
+![Alt Text](Screenshot.png)
