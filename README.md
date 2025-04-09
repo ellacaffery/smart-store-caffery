@@ -14,6 +14,12 @@ A project designed for inventory management. The goal is to use Git for version 
   - [P3 - Data Cleaning \& Prepare for ETL](#p3---data-cleaning--prepare-for-etl)
   - [P4 - Create and Populate a DW](#p4---create-and-populate-a-dw)
   - [P5 - Cross-Platform Reporting with Power BI \& Spark](#p5---cross-platform-reporting-with-power-bi--spark)
+    - [SQL Queries and Reports](#sql-queries-and-reports)
+    - [Reports](#reports)
+    - [Design](#design)
+    - [Power BI Model View](#power-bi-model-view)
+    - [Query Results](#query-results)
+    - [Charts](#charts)
 
 ## Project Setup
 1. Clone the Repository
@@ -154,7 +160,7 @@ Objectives:
 - Create interactive visualizations
 - Explore scalability & cloud-based solutions
 
-SQL Queries and Reports
+### SQL Queries and Reports
 1. Top Customers:
 let
     Source = Odbc.DataSource("dsn=SmartSalesDSN", [HierarchicalNavigation=true]),
@@ -208,22 +214,22 @@ let
 in
     Sorted
 
-- Reports
+### Reports
   These queries are used to 
   1. Identify the top customers through their loyalty points
   2. Identify how many sales are generated from each product
   3. Identify how many sales happen in each region
 
-Design
+### Design
 I aimed to design my visuals in an easy to read manner that makes sense for the datasets.
 
-Power BI Model View
+### Power BI Model View
 ![Alt Text](Screenshot1.png)
 
-Query Results
+### Query Results
 ![Alt Text](TopCustomers.png)
 ![Alt Text](SalesbyProduct.png)
 ![Alt Text](SalesbyRegion.png)
 
-Charts
+### Charts
 ![Alt Text](Screenshot.png)
