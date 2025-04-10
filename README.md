@@ -26,6 +26,7 @@ A project designed for inventory management. The goal is to use Git for version 
     - [Tools](#tools)
     - [Workflow \& Logic](#workflow--logic)
     - [Results](#results)
+    - [Suggested Business Action](#suggested-business-action)
     - [Challenges](#challenges)
 
 ## Project Setup
@@ -251,32 +252,52 @@ Objectives:
 - Describe the logic, process, and challenges behind your OLAP implementation.
 
 ### Business Goal
-Find total sales by day and identify the top products by day
+The goal of this analysis is to understand the trends in sales, including identifying which products are performing the best, customer spending habits, and overall sales trends by month and store. By analyzing these trends, the business can make more informed decisions on marketing, inventory management, and strategic focus to improve sales performance.
 
 ### Data Source
-I used smart_sales.db that I created in an earlier project. Then in my script olap_cubing.py, I used columbs from my customer and sale tables. I used "sale_date" to generate a DayofWeek column, product_id, customer_id, sale_amount_sum, sale_id_count, sale_id.
+The data used in this analysis was sourced from the Smart Store Database (smart_sales.db). The following tables and columns were used:
+sale table:
+- sale_date: The date of the sale.
+- sale_amount: The total sale amount for each transaction.
+- store_id: The ID of the store where the sale occurred.
+- customer_id: The ID of the customer making the purchase.
+- product_id: The ID of the product sold.
+
+product table:
+- product_id: The unique identifier for each product.
+- product_name: The name of the product.
+
+customer table:
+- customer_id: The unique identifier for each customer.
+- name: Name of the customer.
 
 ### Tools
-I used Python and SQLite to execute my scripts. Then my visuals were created through Seaborn and Matplotlib.
+Tools Used:
+- SQLite - For querying and extracting data from the database.
+- Pandas - For data manipulation and aggregation.
+- Matplotlib - For visualizing sales trends through graphs and charts.
+- Python - The primary programming language used to write the scripts and automate the analysis process.
+These tools were chosen for their ability to handle large datasets and provide efficient, reusable solutions for OLAP operations and visualizations.
 
 ### Workflow & Logic
-I used the example provided in GitHub to format my scripts. I went through and made sure my column names were correct. Once all column names were correct, the script ran correctly and generated my visuals. The only thing I wish I would've done differently is have my graphic display the product name rather than ID. 
+The analysis includes three key parts:
+1. Sales by Store: Aggregates total sales by store using the sale table, then creates a pie chart to visualize the sales distribution across stores.
+2. Top Customers: Aggregates total sales by customer, identifying the top customers by the amount they have spent.
+3. Monthly Sales Trend: Aggregates total sales by month and visualizes the sales trend over time with a line graph.
 
 ### Results
-![Alt Text](data/results/sales_by_day_and_product.png)
-List of Product ID's:
-- 101: Laptop
-- 102: Hoodie
-- 103: Cable
-- 104: Hat
-- 105: Football
-- 106: Controller
-- 107: Jacket
-- 108: Protector
-Laptop dominates sales on everyday. 
+![Alt Text](data/olap_cubing_outputs/top_spending_customers.png)
 
-![Alt Text](data/results/sales_by_day_of_week.png)
-Sales are much higher on Monday, Wednesday, and Thursday from the rest of the week. Might look into special deals or promotions on days such as Sunday, Tuesday, Friday, and Saturday to increase sales. 
+![Alt Text](data/olap_cubing_outputs/sales_by_store_pie_chart.png)
+
+![Alt Text](data/olap_cubing_outputs/monthly_sales_trend.png)
+
+### Suggested Business Action
+- Focus on high-performing stores for additional marketing and product offerings.
+
+- Implement loyalty programs or targeted campaigns for the top customers to increase retention.
+
+- Use the monthly sales trend to forecast future sales and adjust inventory or marketing strategies accordingly.
 
 ### Challenges
-This project ran pretty smoothly actually. Just a few fixes throughout my scripts. 
+Issues were encountered with the database schema, particularly with missing or incorrect column names. These were resolved by verifying the column names and ensuring proper data is available for analysis.
