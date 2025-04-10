@@ -273,3 +273,33 @@ dtype: int64
 2025-04-01 10:52:46.803 | INFO     | __main__:main:264 - ==================================
 2025-04-01 10:52:46.804 | INFO     | __main__:main:265 - FINISHED prepare_products_data.py
 2025-04-01 10:52:46.804 | INFO     | __main__:main:266 - ==================================
+2025-04-10 11:05:13.118 | INFO     | __main__:main:113 - Starting SALES_LOW_REVENUE_DAYOFWEEK analysis...
+2025-04-10 11:05:13.121 | ERROR    | __main__:load_olap_cube:53 - Error loading OLAP cube data: [Errno 2] No such file or directory: 'data\\olap_cubing_outputs\\multidimensional_olap_cube.csv'
+2025-04-10 11:22:33.393 | INFO     | __main__:main:209 - Starting OLAP Cubing process...
+2025-04-10 11:22:33.403 | INFO     | __main__:ingest_sales_data_from_dw:113 - Sales data successfully loaded from SQLite data warehouse.
+2025-04-10 11:22:33.422 | ERROR    | __main__:create_olap_cube:165 - Error creating OLAP cube: "Column(s) ['sale_amount_usd'] do not exist"
+2025-04-10 11:26:38.862 | INFO     | __main__:main:209 - Starting OLAP Cubing process...
+2025-04-10 11:26:38.864 | INFO     | __main__:ingest_sales_data_from_dw:113 - Sales data successfully loaded from SQLite data warehouse.
+2025-04-10 11:26:38.894 | INFO     | __main__:create_olap_cube:162 - OLAP cube created with dimensions: ['DayOfWeek', 'product_id', 'customer_id']
+2025-04-10 11:26:38.903 | INFO     | __main__:write_cube_to_csv:201 - OLAP cube saved to data\olap_cubing_outputs\multidimensional_olap_cube.csv.
+2025-04-10 11:26:38.903 | INFO     | __main__:main:233 - OLAP Cubing process completed successfully.
+2025-04-10 11:26:38.906 | INFO     | __main__:main:234 - Please see outputs in data\olap_cubing_outputs
+2025-04-10 11:30:07.575 | INFO     | __main__:main:113 - Starting SALES_LOW_REVENUE_DAYOFWEEK analysis...
+2025-04-10 11:30:07.603 | INFO     | __main__:load_olap_cube:50 - OLAP cube data successfully loaded from data\olap_cubing_outputs\multidimensional_olap_cube.csv.
+2025-04-10 11:30:07.603 | ERROR    | __main__:analyze_sales_by_weekday:69 - Error analyzing sales by DayOfWeek: 'Column not found: sale_amount_usd_sum'
+2025-04-10 11:30:44.671 | INFO     | __main__:main:113 - Starting SALES_LOW_REVENUE_DAYOFWEEK analysis...
+2025-04-10 11:30:44.675 | INFO     | __main__:load_olap_cube:50 - OLAP cube data successfully loaded from data\olap_cubing_outputs\multidimensional_olap_cube.csv.
+2025-04-10 11:30:44.681 | INFO     | __main__:analyze_sales_by_weekday:66 - Sales aggregated by DayOfWeek successfully.
+2025-04-10 11:30:44.681 | INFO     | __main__:identify_least_profitable_day:77 - Least profitable day: Friday with revenue $8617.76.
+2025-04-10 11:30:44.682 | INFO     | __main__:main:123 - Least profitable day: Friday
+2025-04-10 11:30:44.682 | INFO     | __main__:main:124 - Close the Figure to complete this script.
+2025-04-10 11:30:46.652 | INFO     | __main__:visualize_sales_by_weekday:104 - Visualization saved to data\results\sales_by_day_of_week.png.
+2025-04-10 11:30:54.037 | INFO     | __main__:main:128 - Analysis and visualization completed successfully.
+2025-04-10 11:32:14.786 | INFO     | __main__:main:110 - Starting SALES_TOP_PRODUCT_BY_WEEKDAY analysis...
+2025-04-10 11:32:14.790 | INFO     | __main__:load_olap_cube:48 - OLAP cube data successfully loaded from data\olap_cubing_outputs\multidimensional_olap_cube.csv.
+2025-04-10 11:32:14.791 | ERROR    | __main__:analyze_top_product_by_weekday:67 - Error analyzing top product by DayOfWeek: 'Column not found: sale_amount_usd_sum'
+2025-04-10 11:33:44.554 | INFO     | __main__:main:110 - Starting SALES_TOP_PRODUCT_BY_WEEKDAY analysis...
+2025-04-10 11:33:44.557 | INFO     | __main__:load_olap_cube:48 - OLAP cube data successfully loaded from data\olap_cubing_outputs\multidimensional_olap_cube.csv.
+2025-04-10 11:33:44.576 | INFO     | __main__:analyze_top_product_by_weekday:64 - Top products identified for each day of the week.
+2025-04-10 11:33:44.967 | INFO     | __main__:visualize_sales_by_weekday_and_product:101 - Stacked bar chart saved to data\results\sales_by_day_and_product.png.
+2025-04-10 11:33:48.666 | INFO     | __main__:main:121 - Analysis and visualization completed successfully.

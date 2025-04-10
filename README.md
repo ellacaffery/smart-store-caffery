@@ -20,6 +20,13 @@ A project designed for inventory management. The goal is to use Git for version 
     - [Power BI Model View](#power-bi-model-view)
     - [Query Results](#query-results)
     - [Charts](#charts)
+  - [P6: BI Insights and Storytelling](#p6-bi-insights-and-storytelling)
+    - [Business Goal](#business-goal)
+    - [Data Source](#data-source)
+    - [Tools](#tools)
+    - [Workflow \& Logic](#workflow--logic)
+    - [Results](#results)
+    - [Challenges](#challenges)
 
 ## Project Setup
 1. Clone the Repository
@@ -233,3 +240,43 @@ I aimed to design my visuals in an easy to read manner that makes sense for the 
 
 ### Charts
 ![Alt Text](Screenshot.png)
+
+## P6: BI Insights and Storytelling
+
+Objectives:
+- Analyze data using OLAP, slicing, dicing, and drilldown techniques to identify business insights.
+- Design a clear business question and define the data and metrics required to address it.
+- Use Python (or an alternate tool) to implement OLAP-style queries and analysis.
+- Present insights using clear visualizations and explain the business implications.
+- Describe the logic, process, and challenges behind your OLAP implementation.
+
+### Business Goal
+Find total sales by day and identify the top products by day
+
+### Data Source
+I used smart_sales.db that I created in an earlier project. Then in my script olap_cubing.py, I used columbs from my customer and sale tables. I used "sale_date" to generate a DayofWeek column, product_id, customer_id, sale_amount_sum, sale_id_count, sale_id.
+
+### Tools
+I used Python and SQLite to execute my scripts. Then my visuals were created through Seaborn and Matplotlib.
+
+### Workflow & Logic
+I used the example provided in GitHub to format my scripts. I went through and made sure my column names were correct. Once all column names were correct, the script ran correctly and generated my visuals. The only thing I wish I would've done differently is have my graphic display the product name rather than ID. 
+
+### Results
+![Alt Text](sales_by_day_and_product.png)
+List of Product ID's:
+- 101: Laptop
+- 102: Hoodie
+- 103: Cable
+- 104: Hat
+- 105: Football
+- 106: Controller
+- 107: Jacket
+- 108: Protector
+Laptop dominates sales on everyday. 
+
+![Alt Text](sales_by_day_of_week.png)
+Sales are much higher on Monday, Wednesday, and Thursday from the rest of the week. Might look into special deals or promotions on days such as Sunday, Tuesday, Friday, and Saturday to increase sales. 
+
+### Challenges
+This project ran pretty smoothly actually. Just a few fixes throughout my scripts. 
