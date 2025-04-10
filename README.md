@@ -231,15 +231,15 @@ in
 I aimed to design my visuals in an easy to read manner that makes sense for the datasets.
 
 ### Power BI Model View
-![Alt Text](Screenshot1.png)
+![Alt Text](images/Screenshot%201.png)
 
 ### Query Results
-![Alt Text](TopCustomers.png)
-![Alt Text](SalesbyProduct.png)
-![Alt Text](SalesbyRegion.png)
+![Alt Text](images/TopCustomers.png)
+![Alt Text](images/SalesbyProduct.png)
+![Alt Text](images/SalesbyRegion.png)
 
 ### Charts
-![Alt Text](Screenshot.png)
+![Alt Text](images/Screenshot.png)
 
 ## P6: BI Insights and Storytelling
 
@@ -263,7 +263,7 @@ I used Python and SQLite to execute my scripts. Then my visuals were created thr
 I used the example provided in GitHub to format my scripts. I went through and made sure my column names were correct. Once all column names were correct, the script ran correctly and generated my visuals. The only thing I wish I would've done differently is have my graphic display the product name rather than ID. 
 
 ### Results
-![Alt Text](sales_by_day_and_product.png)
+![Alt Text](data/results/sales_by_day_and_product.png)
 List of Product ID's:
 - 101: Laptop
 - 102: Hoodie
@@ -275,7 +275,7 @@ List of Product ID's:
 - 108: Protector
 Laptop dominates sales on everyday. 
 
-![Alt Text](sales_by_day_of_week.png)
+![Alt Text](data/results/sales_by_day_of_week.png)
 Sales are much higher on Monday, Wednesday, and Thursday from the rest of the week. Might look into special deals or promotions on days such as Sunday, Tuesday, Friday, and Saturday to increase sales. 
 
 ### Challenges
